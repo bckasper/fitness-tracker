@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+require("dotenv").config()
 
 const PORT = process.env.PORT || 3000;
 
@@ -19,6 +20,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitnessDB", {
 
 // routes
 app.use(require("./routes/api.js"));
+app.use(require('./routes/html.js'))
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}`)
