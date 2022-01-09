@@ -19,6 +19,8 @@ router.get("/api/workouts", (request, response) => {
 
 // create another workout
 router.post("/api/workouts",({body}, response) =>{
+    console.log(`Body: ${body}`)
+    console.log(`Body: ${response}`)
     Workout.create(body)
         .then(workout => {
             response.json(workout)
