@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const res = require("express/lib/response");
 const path = require("path");
 
 router.get('/', (request, response) => {
