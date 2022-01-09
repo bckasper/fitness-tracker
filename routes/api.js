@@ -13,7 +13,13 @@ router.get("/api/workouts", (request, response) => {
 });
 
 // create another workout
-router.post('/',({body}, response) =>{
-    db.Workout.create(body)
-        .then(workout => {response.json(workout)})
+router.post('/api/workouts',({body}, response) =>{
+    console.log(body)
+    Workout.create(body)
+    console.log("test")
+        .then(workout => {
+            response.json(workout)
+            console.log(workout)
+        })
+        .catch((error) => {response.status(400).json(error)})
 })
