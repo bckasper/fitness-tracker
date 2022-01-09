@@ -3,9 +3,13 @@ const Workout = require('../models/workout')
 
 // get workouts
 router.get("/api/workouts", (request, response) => {
-    db.Workout.find({})
-        .then(workout =>{response.json(workout)})
-        .catch(err => {response.status(400).json(err)})
+    Workout.aggregate([{
+        $addFields: {
+            totalDuration: {$sum: "$exercises.duration"}
+        }
+    }])
+    .then((db)=>{response.json(db)})
+    .catch((error)=>{response.status(400).json(error)})
 });
 
 // create another workout
