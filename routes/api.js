@@ -5,7 +5,7 @@ const Workout = require('../models/workout')
 
 
 // create another workout
-router.post("/",({body}, response) =>{
+router.post("/api/workouts",({body}, response) =>{
     console.log(body)
     Workout.create(body)
     console.log("test")
