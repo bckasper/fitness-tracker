@@ -25,3 +25,5 @@ router.post("/api/workouts",({body}, response) =>{
         })
         .catch((error) => {response.status(400).json(error)})
 })
+
+module.exports = router
