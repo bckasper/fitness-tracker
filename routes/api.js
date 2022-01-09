@@ -13,7 +13,7 @@ router.get("/api/workouts", (request, response) => {
 });
 
 // create another workout
-router.post('/api/workouts',({body}, response) =>{
+router.post('/',({body}, response) =>{
     console.log(body)
     Workout.create(body)
     console.log("test")
